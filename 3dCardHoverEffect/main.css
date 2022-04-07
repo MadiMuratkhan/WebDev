@@ -1,0 +1,42 @@
+body{
+    background-color: #151515;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 50vh;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    transition-duration: 400ms;
+}
+.container:hover{
+    height: 70vh;
+}
+.container:hover .card{
+    transform: rotate(-40deg) skew(28deg, 0deg);
+    margin: -20px 0;
+}
+.card{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    z-index: 3;
+    margin: -50px 0;
+    transition-duration: 500ms;
+}
+.card:nth-child(2){
+    background: #ffffff6b;
+    z-index: 2;
+}
+.card:nth-child(3){
+    background: #ffffff3b;
+    z-index: 1;
+}
+.card:hover{
+    background: #5973f1;
+}
+.card:nth-child(2):hover, .card:nth-child(3):hover{
+    margin-top: 30px !important;
+}
