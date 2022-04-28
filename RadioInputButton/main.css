@@ -1,0 +1,130 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #272936;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+}
+.innner::after, .innner::before, input[type=radio]{
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+}
+.card{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    text-align: center;
+    width: 250px;
+    height: 150px;
+    border-radius: 5px;
+}
+.input-wrapper{
+    display: block;
+    margin-left: 20px;
+    text-align: left;
+}
+input[type=radio]{
+    display: block;
+}
+.outer{
+    width: 30px;
+    height: 30px;
+    border: 3px solid #87745c;
+    position: relative;
+    display: inline-block;
+    background: transparent;
+    margin: 25px 20px 0 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 0;
+}
+.innner{
+    position: relative;
+    font-family: "Open Sans" , sans-serif;
+}
+.innner::before{
+    content: " ";
+    top: 50%;
+    left: 7px;
+    color: #4b6279;
+    transform: scale(0) translateY(-50%);
+}
+
+.innner::after{
+    content: " ";
+    left: -140%;
+    bottom: -180%;
+    font-size: 2em;
+    transform: scale(3);
+    color: #4b6279;
+}
+.innner::before:hover{
+    opacity: 1;
+}
+.input-name{
+    position: relative;
+    top: -27px;
+    left: 80px;
+    color: #87745c;
+}
+@keyframes boom {
+    0%{
+        box-shadow: 0 0 0 15px rgba(100, 100, 100, 0.25);
+    }
+
+    100%{
+        box-shadow: 0 0 0 15px rgba(100, 100, 100, 0);
+    }
+}
+.input[type=radio]:hover + label .innner::before{
+    opacity: 0.2;
+    display: inline-block;
+    position: absolute;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+.input[type=radio]:checked + label .innner::before {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: all 0.2s ease;
+}
+.input[type=radio]:focus + label .innner::before {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+    -webkit-transition-delay: 0.75s;
+}
+.input[type=radio]:focus + label .outer {
+    transform: translate(0.09em, 0.09em);
+    box-shadow: 0 0 0 0 rgba(200, 200, 200, 0.1);
+    border: 3px solid #4b6279;
+    -webkit-transition-delay: 0.75s;
+    -webkit-animation: boom 1s ease-out;
+    -webkit-animation-delay: 0.75s;
+}
+.input[type=radio]:focus + label .input-name .text-effect {
+    transition: all 0.2s ease-out;
+    -webkit-transition-delay: 0.75s;
+    color: #4b6279;
+}
+.input[type=radio] + label .input-name .text-effect {
+    cursor: pointer;
+}
+.input[type=radio]:focus + label .innner::after {
+    opacity: 1;
+    -webkit-transform: translate(140px, -150px) scale(0.01);
+    transition: all 1s ease;
+
+}
+
